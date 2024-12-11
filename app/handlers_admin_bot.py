@@ -9,7 +9,7 @@ import os
 from config.parser_config_admin import (get_status_bot, set_active_bot,
                                         set_inactive_bot, get_owner_user_id,
                                         set_len, set_size)
-from sqlite import db_start, get_all_users, db_close
+from db.sqlite import db_start, get_all_users, db_close
 
 router = Router()
 

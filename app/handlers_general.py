@@ -1,14 +1,13 @@
 from aiogram import F, Router
-from aiogram.types import Message, TelegramObject, ChatFullInfo, BotCommand, ReactionTypeEmoji
-from aiogram.filters import CommandStart, Command
+from aiogram.types import Message, ReactionTypeEmoji
+from aiogram.filters import Command
 from aiogram.enums.parse_mode import ParseMode
 
 import re
 import random
 
-from config.parser_config_admin import (get_status_bot, set_active_bot, set_inactive_bot,
-                                        get_owner_user_id, get_max_len, get_max_size)
-from sqlite import db_start, add_user, db_close
+from config.parser_config_admin import (get_status_bot, get_max_len, get_max_size)
+from db.sqlite import db_start, add_user, db_close
 
 router = Router()
 
