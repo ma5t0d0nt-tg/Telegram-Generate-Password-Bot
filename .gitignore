@@ -6,4 +6,5 @@ __pycache__/
 config/config.ini
 db
 TODO.py
+users.db
 
