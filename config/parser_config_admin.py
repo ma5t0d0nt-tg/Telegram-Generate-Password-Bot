@@ -57,14 +57,27 @@ def set_inactive_bot() -> None:
 
 
 def get_max_len() -> int:
+    """
+    Получение максимальной длины одного пароля
+    :return: максимальная длина генерируемого пароля
+    """
     return int(conf['PARAMETERS_MAX']['len'])
 
 
 def get_max_size() -> int:
+    """
+    Получение максимального количества паролей за один запрос
+    :return:
+    """
     return int(conf['PARAMETERS_MAX']['size'])
 
 
 def set_len(val: str) -> None:
+    """
+    Установка нового значения максимальной длины
+    :param val: новое значение длины
+    :return: None
+    """
     conf.set('PARAMETERS_MAX', 'len', val)
     with open('config/config.ini', 'w') as configfile:
         conf.write(configfile)
@@ -72,6 +85,11 @@ def set_len(val: str) -> None:
 
 
 def set_size(val: str) -> None:
+    """
+        Установка нового значения максимального количества
+        :param val: новое значение количества
+        :return: None
+        """
     conf.set('PARAMETERS_MAX', 'size', val)
     with open('config/config.ini', 'w') as configfile:
         conf.write(configfile)
