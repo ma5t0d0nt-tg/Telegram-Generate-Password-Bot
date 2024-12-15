@@ -97,11 +97,14 @@ async def handler(message: Message):
 async def handler(message: Message):
     is_owner = check_user(user_id_message=message.from_user.id)
     if is_owner:
-        file_size_byte = os.path.getsize("users.db")
-        file_size_kbyte = file_size_byte / 1024
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
-        await message.reply(f"Размер файла базы данных: {file_size_kbyte} КБ")
+        if os.path.exists("users.db"):
+            file_size_byte = os.path.getsize("users.db")
+            file_size_kbyte = file_size_byte / 1024
+            emoji_got_it = ReactionTypeEmoji(emoji='👍')
+            await message.react(reaction=[emoji_got_it])
+            await message.reply(f"Размер файла базы данных: {file_size_kbyte} КБ")
+        else:
+            await message.reply(f"Файла не существует")
 
 
 @router.message(Command("getusers"))
