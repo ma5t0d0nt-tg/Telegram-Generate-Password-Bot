@@ -91,12 +91,12 @@ async def handler(message: Message):
             digits = "0123456789"
             punctuation = "!#$%&'()*+,-./:;<=>?@[\\]^_{|}~"
 
-            size_pass = arr_parameters[0]
-            uppercase = arr_parameters[1]
-            lowercase = arr_parameters[2]
-            digit = arr_parameters[3]
-            special_characters = arr_parameters[4]
-            count = arr_parameters[5]
+            size_pass = arr_parameters[0].strip()
+            uppercase = arr_parameters[1].strip()
+            lowercase = arr_parameters[2].strip()
+            digit = arr_parameters[3].strip()
+            special_characters = arr_parameters[4].strip()
+            count = arr_parameters[5].strip()
 
             str_description_template = "Шаблон был составлен из: "
             arr_description_template = []
