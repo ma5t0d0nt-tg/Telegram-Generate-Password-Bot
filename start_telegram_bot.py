@@ -10,6 +10,7 @@ dp = Dispatcher()
 
 
 async def main():
+    # добавление роутеров и запуск бота
     dp.include_routers(handlers_admin_bot.router,
                        handlers_general.router,
                        handlers_easter_eggs.router)
