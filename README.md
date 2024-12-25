@@ -1,6 +1,6 @@
 <table>
 <tr>
-    <th><h1 align="center"><a href="https://t.me/as_md_bot">Telegram Generate Password Bot</a></h1>
+    <th><h1 align="center"><a href="https://t.me/gen_secur_pass_bot">Telegram Generate Password Bot</a></h1>
 </th>
     <th width="15%">
 
