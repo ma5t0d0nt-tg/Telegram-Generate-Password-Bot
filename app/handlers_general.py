@@ -30,8 +30,6 @@ async def handler(message: Message):
 async def handler(message: Message):
     status = get_status_bot()
     if status == "1":
-        emoji_got_it = ReactionTypeEmoji(emoji='👨‍💻')
-        await message.react(reaction=[emoji_got_it])
         await message.reply(text=f"Ссылка на автора данного бота\nhttps://t.me/m/-kwpIKrTMzIy")
 
 
@@ -172,8 +170,6 @@ async def handler(message: Message):
                 await message.reply(text=str_description_template + ", ".join(arr_description_template) + "\n\n" +
                                          f"Длина паролей: {size_pass}.\nКоличество паролей: {count}")
                 await message.reply(text="\n\n".join(arr_gen_pass), parse_mode=ParseMode.MARKDOWN)
-                emoji_got_it = ReactionTypeEmoji(emoji='👍')
-                await message.react(reaction=[emoji_got_it])
 
             else:
                 await message.reply("В шаблоне допущена ошибка.\n"

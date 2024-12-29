@@ -37,8 +37,6 @@ async def handler(message: Message):
                      f"/getusers - получить список пользователей, воспользовавшихся ботом;\n"
                      f"len X - установить новую максимальную длину пароля (Х - число);\n"
                      f"size X - установить максимальное число генерируемых паролей за раз (Х - число);")
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
         await message.reply(text=str_f_cmd, parse_mode=ParseMode.MARKDOWN)
 
 
@@ -47,8 +45,6 @@ async def handler(message: Message):
     is_owner = check_user(user_id_message=message.from_user.id)
     if is_owner:
         set_active_bot()
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
         await message.reply(text="Бот включен")
 
 
@@ -57,8 +53,6 @@ async def handler(message: Message):
     is_owner = check_user(user_id_message=message.from_user.id)
     if is_owner:
         set_inactive_bot()
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
         await message.reply(text="Бот отключен")
 
 
@@ -69,12 +63,8 @@ async def handler(message: Message):
         current_status = int(get_status_bot())
         if current_status == 0:
             await message.reply(text="Бот отключен")
-            emoji_got_it = ReactionTypeEmoji(emoji='😴')
-            await message.react(reaction=[emoji_got_it])
         elif current_status == 1:
             await message.reply(text="Бот работает")
-            emoji_got_it = ReactionTypeEmoji(emoji='👨‍💻')
-            await message.react(reaction=[emoji_got_it])
 
 
 @router.message(Command("getconfig"))
@@ -88,8 +78,6 @@ async def handler(message: Message):
                  f"[PARAMETERS_MAX]:\n"
                  f"len: {conf['PARAMETERS_MAX']['len']}\n"
                  f"size: {conf['PARAMETERS_MAX']['size']}")
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
         await message.reply(text=str_f)
 
 
@@ -100,8 +88,6 @@ async def handler(message: Message):
         if os.path.exists("users.db"):
             file_size_byte = os.path.getsize("users.db")
             file_size_kbyte = file_size_byte / 1024
-            emoji_got_it = ReactionTypeEmoji(emoji='👍')
-            await message.react(reaction=[emoji_got_it])
             await message.reply(f"Размер файла базы данных: {file_size_kbyte} КБ")
         else:
             await message.reply(f"Файла не существует")
@@ -119,8 +105,6 @@ async def handler(message: Message):
                         f"Name: {user[1]}\n"
                         f"URL: {user[2]}")
             await message.reply(text=str_user)
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
 
 
 @router.message(F.text.startswith("len"))
@@ -129,8 +113,6 @@ async def handler(message: Message):
     if is_owner:
         lent = message.text.replace("len", "").strip()
         set_len(lent)
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
         await message.reply(text=f"Максимальная длина одного пароля изменена на {lent}")
 
 
@@ -140,6 +122,4 @@ async def handler(message: Message):
     if is_owner:
         size = message.text.replace("size", "").strip()
         set_size(size)
-        emoji_got_it = ReactionTypeEmoji(emoji='👍')
-        await message.react(reaction=[emoji_got_it])
         await message.reply(text=f"Максимальное количество генерируемых сообщений за раз изменено на {size}")
